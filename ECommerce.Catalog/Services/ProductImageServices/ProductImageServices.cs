@@ -32,16 +32,16 @@ namespace ECommerce.Catalog.Services.ProductImageServices
 
         }
 
-        public async Task<List<GetByIdProductImageDto>> GetAllByIdProductImageAsync(string id)
+        public async Task<GetByIdProductImageDto> GetAllByIdProductImageAsync(string id)
         {
             var values = await productCollection.Find<ProductImage>(x => x.ProductImageID == id).FirstOrDefaultAsync();
-            return mapper.Map<List<GetByIdProductImageDto>>(values);
+            return mapper.Map<GetByIdProductImageDto>(values);
         }
 
-        public async Task<ResultProductImageDto> GetAllProductImageAsync()
+        public async Task<List<ResultProductImageDto>> GetAllProductImageAsync()
         {
             var valuex = await productCollection.Find(x => true).ToListAsync();
-            return mapper.Map<ResultProductImageDto>(valuex);
+            return mapper.Map<List<ResultProductImageDto>>(valuex);
         }
 
         public async Task UpdateProductImage(UpdateProductImageDto ProductDto)

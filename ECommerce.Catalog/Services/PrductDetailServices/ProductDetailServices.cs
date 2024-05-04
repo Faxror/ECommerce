@@ -32,16 +32,16 @@ namespace ECommerce.Catalog.Services.PrductDetailServices
 
         }
 
-        public async Task<List<GetByIdProductDetailDto>> GetAllByIdProductDetailAsync(string id)
+        public async Task<GetByIdProductDetailDto> GetAllByIdProductDetailAsync(string id)
         {
             var values = await productCollection.Find<ProductDetail>(x => x.ProdcutDetailID == id).FirstOrDefaultAsync();
-            return mapper.Map<List<GetByIdProductDetailDto>>(values);
+            return mapper.Map<GetByIdProductDetailDto>(values);
         }
 
-        public async Task<ResultProductDetailDto> GetAllProductDetailAsync()
+        public async Task<List<ResultProductDetailDto>> GetAllProductDetailAsync()
         {
             var valuex = await productCollection.Find(x => true).ToListAsync();
-            return mapper.Map<ResultProductDetailDto>(valuex);
+            return mapper.Map<List<ResultProductDetailDto>>(valuex);
         }
 
         public async Task UpdateProductDetail(UpdateProductDetailDto ProductDto)

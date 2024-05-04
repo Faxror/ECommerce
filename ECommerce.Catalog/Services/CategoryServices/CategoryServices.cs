@@ -30,16 +30,16 @@ namespace ECommerce.Catalog.Services.CategoryServices
             await mongoCollection.DeleteOneAsync(x => x.CategoryID == id);
         }
 
-        public async Task<List<GetByIdCategoryDto>> GetAllByIdCategoriesAsync(string id)
+        public async Task<GetByIdCategoryDto> GetAllByIdCategoriesAsync(string id)
         {
             var value = await mongoCollection.Find<Category>(x => x.CategoryID == id).FirstOrDefaultAsync();
-           return mapper.Map<List<GetByIdCategoryDto>>(value);
+           return mapper.Map<GetByIdCategoryDto>(value);
         }
 
-        public async Task<ResultCategoryDto> GetAllCategoryAsync()
+        public async  Task<List<ResultCategoryDto>>  GetAllCategoryAsync()
         {
             var values = await mongoCollection.Find(x => true).ToListAsync();
-            return mapper.Map<ResultCategoryDto>(values);
+            return mapper.Map<List<ResultCategoryDto>>(values);
         }
 
         public async Task UpdateCategory(UpdateCategoryDto categoryDto)
@@ -47,5 +47,7 @@ namespace ECommerce.Catalog.Services.CategoryServices
             var value = mapper.Map<Category>(categoryDto);
             await mongoCollection.FindOneAndReplaceAsync(x => x.CategoryID == categoryDto.CategoryID, value);
         }
+
+    
     }
 }
