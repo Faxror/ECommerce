@@ -17,7 +17,7 @@ namespace ECommerce.Discount.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=FAXROR; initial Catalog=ECommerceDiscountDb; integrated Security=true");
+            optionsBuilder.UseSqlServer("Server=localhost,1466;initial Catalog=ECommerceDiscountDb;  User=sa; Password=12345aA*");
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Coupon> Coupons { get; set; }

@@ -1,0 +1,6 @@
+Ýdentity --> 5001
+Catalog  --> 7047
+Discount --> 7048
+Order    --> 7049
+Cargo    --> 7050
+Basket    --> 7051
