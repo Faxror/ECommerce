@@ -28,13 +28,19 @@ namespace ECommerce.Catalog.Services.PrductDetailServices
 
         public async Task DeleteProductDetailAsync(string id)
         {
-            var value = await productCollection.DeleteOneAsync(x => x.ProdcutDetailID == id);
+            var value = await productCollection.DeleteOneAsync(x => x.ProductDetailID == id);
 
         }
 
         public async Task<GetByIdProductDetailDto> GetAllByIdProductDetailAsync(string id)
         {
-            var values = await productCollection.Find<ProductDetail>(x => x.ProdcutDetailID == id).FirstOrDefaultAsync();
+            var values = await productCollection.Find<ProductDetail>(x => x.ProductDetailID == id).FirstOrDefaultAsync();
+            return mapper.Map<GetByIdProductDetailDto>(values);
+        }
+
+        public async Task<GetByIdProductDetailDto> GetAllByProductIdProductDetailAsync(string id)
+        {
+            var values = await productCollection.Find<ProductDetail>(x => x.ProdcutID == id).FirstOrDefaultAsync();
             return mapper.Map<GetByIdProductDetailDto>(values);
         }
 
@@ -47,7 +53,7 @@ namespace ECommerce.Catalog.Services.PrductDetailServices
         public async Task UpdateProductDetail(UpdateProductDetailDto ProductDto)
         {
             var value = mapper.Map<ProductDetail>(ProductDto);
-            await productCollection.FindOneAndReplaceAsync(x => x.ProdcutDetailID == ProductDto.ProdcutDetailID, value);
+            await productCollection.FindOneAndReplaceAsync(x => x.ProductDetailID == ProductDto.ProductDetailID, value);
         }
     }
 }

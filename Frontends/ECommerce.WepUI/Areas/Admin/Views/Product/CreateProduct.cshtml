@@ -1,0 +1,43 @@
+﻿@using ECommerce.Dto.CatalogDtos.ProductDtos
+@model CreateProductDto
+
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Ürün Ekleme Sayfası</h4>
+                <br />
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <label>Ürün Adı</label>
+                        <input type="text" class="form-control" name="ProductName" />
+                        <br />
+                        <label>Ürün Fiyatı</label>
+                        <input type="text" class="form-control" name="ProductPrice" />
+                        <br />
+                        <label>Ürün Görseli</label>
+                        <input type="text" class="form-control" name="ProductImageUrl" />
+                        <br />
+                        <label>Ürün Kategorisi</label>
+                        @Html.DropDownListFor(x => x.CategoryID, (IEnumerable<SelectListItem>)ViewBag.CategoryValuess, "Kategori Seç", new { @class = "form-control" })
+                        <br />
+                        <label>Ürün Açıklaması</label>
+                        <textarea class="form-control" name="ProductDescription" rows="5"></textarea>
+                        <br />
+                        <button class="btn btn-primary">Ürünü Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

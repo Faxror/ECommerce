@@ -10,5 +10,7 @@ namespace ECommerce.Catalog.Services.CategoryServices
         Task DeleteCategoryAsync(string id);
 
         Task<GetByIdCategoryDto> GetAllByIdCategoriesAsync(string id);
+
+   
     }
 }

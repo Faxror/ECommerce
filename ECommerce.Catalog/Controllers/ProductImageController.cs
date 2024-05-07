@@ -23,6 +23,13 @@ namespace ECommerce.Catalog.Controllers
             return Ok(valuse);
         }
 
+
+        [HttpGet("ProductImagesByProductId")]
+        public async Task<IActionResult> ProductImagesByProductId(string id)
+        {
+            var valuse = await _productsImageServies.GetAllByProductIdProductImageAsync(id);
+            return Ok(valuse);
+        }
         [HttpGet("{ıd}")]
         public async Task<IActionResult> GetListByIdProductIamge(string id)
         {

@@ -11,5 +11,6 @@ namespace ECommerce.Catalog.Services.ProductImageServices
         Task DeleteProductImageAsync(string id);
 
         Task<GetByIdProductImageDto> GetAllByIdProductImageAsync(string id);
+        Task<GetByIdProductImageDto> GetAllByProductIdProductImageAsync(string id);
     }
 }

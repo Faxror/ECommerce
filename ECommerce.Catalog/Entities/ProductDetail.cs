@@ -7,7 +7,7 @@ namespace ECommerce.Catalog.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ProdcutDetailID { get; set; }
+        public string ProductDetailID { get; set; }
         public string ProdcutDescription { get; set; }
         public string ProdcutInformation { get; set; }
 

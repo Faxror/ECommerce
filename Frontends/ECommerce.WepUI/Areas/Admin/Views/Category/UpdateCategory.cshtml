@@ -1,0 +1,37 @@
+﻿@using ECommerce.Dto.CatalogDtos.CategoryDtos
+@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Kategori Güncelleme Sayfası</h4>
+                <br />
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <label>Kategori Id</label>
+                        <input type="text" class="form-control" readonly  name="CategoryID" value="@Model.CategoryID" />
+                        <br />
+                        <label>Kategori Adı</label>
+                        <input type="text" class="form-control"  name="CategoryName" value="@Model.CategoryName" />
+                        <br />
+                        <label>Kategori Resim Url</label>
+                        <input type="text" class="form-control" name="CategoryImageUrl" value="@Model.CategoryImageUrl" />
+                        <br />
+                        <button class="btn btn-primary">Kategoriyi Güncelle</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

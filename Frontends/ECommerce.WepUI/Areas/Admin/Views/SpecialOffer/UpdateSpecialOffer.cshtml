@@ -1,0 +1,35 @@
+﻿@using ECommerce.Dto.CatalogDtos.SpecialOfferDtos
+@model UpdateSpecialOfferDto
+@{
+    ViewData["Title"] = "UpdateSpecialOffer";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>İndirim Güncelleme Sayfası</h4>
+                <br />
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <input type="hidden" asp-for="SpecialOfferId" value="@Model?.SpecialOfferId" />
+                        <label>İndirim Başlığı</label>
+                        <input type="text" class="form-control" asp-for="Title" value="@Model?.Title" />
+                        <br />
+                        <label>İndirim Alt Başlığı</label>
+                        <input type="text" class="form-control" asp-for="SubTitle" value="@Model?.SubTitle" />
+                        <br />
+                        <label>İndirim Görsel</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" value="@Model?.ImageUrl" />
+                        <br />
+                        <button class="btn btn-primary">İndirimi Güncelleme</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

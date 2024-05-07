@@ -2,6 +2,7 @@
 
 namespace ECommerce.WebUI.Controllers
 {
+ 
     public class DefaultController : Controller
     {
         public IActionResult Index()

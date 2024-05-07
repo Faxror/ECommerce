@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -50,6 +50,22 @@ namespace ECommerce.Catalog.Controllers
         {
             await _productServices.UpdateProduct(updateProductDto);
             return Ok("Başarılı şekilde güncellendi");
+        }
+
+
+        [HttpGet("ProductListWithCategory")]
+        public async Task<IActionResult> GetByIdProductList()
+        {
+            var valuse = await _productServices.GetProductWithCategoryAsync();
+            return Ok(valuse);
+        }
+
+
+        [HttpGet("ProductListWithCategoryByCategoryId")]
+        public async Task<IActionResult> ProductListWithCategoryByCategoryId(string id)
+        {
+            var valuse = await _productServices.GetProductWithCategoryByCategoryIdAsync(id);
+            return Ok(valuse);
         }
     }
 }

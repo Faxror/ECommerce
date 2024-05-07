@@ -11,5 +11,8 @@ namespace ECommerce.Catalog.Services.ProductServices
         Task DeleteProductAsync(string id);
 
         Task<GetByIdProductDto> GetAllByIdProductAsync(string id);
+
+        Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryAsync();
+        Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryByCategoryIdAsync(string CategoryId);
     }
 }

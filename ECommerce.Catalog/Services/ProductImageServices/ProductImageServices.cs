@@ -38,6 +38,12 @@ namespace ECommerce.Catalog.Services.ProductImageServices
             return mapper.Map<GetByIdProductImageDto>(values);
         }
 
+        public async Task<GetByIdProductImageDto> GetAllByProductIdProductImageAsync(string id)
+        {
+            var values = await productCollection.Find<ProductImage>(x => x.ProductID == id).FirstOrDefaultAsync();
+            return mapper.Map<GetByIdProductImageDto>(values);
+        }
+
         public async Task<List<ResultProductImageDto>> GetAllProductImageAsync()
         {
             var valuex = await productCollection.Find(x => true).ToListAsync();

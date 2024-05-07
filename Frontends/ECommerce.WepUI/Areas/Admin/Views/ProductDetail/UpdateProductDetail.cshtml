@@ -1,0 +1,46 @@
+﻿@using ECommerce.Dto.CatalogDtos.ProductDetailDtos
+@model UpdateProductDetailDto
+@{
+    ViewData["Title"] = "UpdateProductDetail";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Ürün Açıklama ve Bilgi Güncelleme Sayfası</h4>
+                <br />
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        
+@if (Model != null)
+                        {
+                            <input type="hidden" class="form-control" readonly name="ProductDetailID" value="@Model.ProductDetailID" />
+                            
+                            <label>Ürün Açıklama</label>
+                            <input type="text" class="form-control" name="ProdcutDescription" value="@Model.ProdcutDescription" />
+                            <br />
+                            <label>Ürün Bilgilendirme</label>
+                            <input type="text" class="form-control" name="ProdcutInformation" value="@Model.ProdcutInformation" />
+                            <br />
+                            <input type="hidden" class="form-control" readonly name="ProdcutID" value="@Model.ProdcutID" />
+                            <button class="btn btn-primary">Bilgileri Güncelle</button>
+                        }
+                        else
+                        {
+                            <p>Model null.</p>
+                        }
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
