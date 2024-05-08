@@ -7,6 +7,7 @@ using ECommerce.Catalog.Entities;
 using ECommerce.Catalog.Controllers;
 using ECommerce.Catalog.Dtos.FeatureSliderDtos;
 using ECommerce.Catalog.Dtos.SpecialOfferDtos;
+using ECommerce.Catalog.Dtos.ContactDtos;
 
 namespace ECommerce.Catalog.Mapping
 {
@@ -49,7 +50,12 @@ namespace ECommerce.Catalog.Mapping
             CreateMap<SpecialOffer, CreateSpecialOfferDto>().ReverseMap();
             CreateMap<SpecialOffer, UpdateSpecialOfferDto>().ReverseMap();
             CreateMap<SpecialOffer, GetByIdSpecialOfferDto>().ReverseMap();
-            
+
+            //Contact Mapping
+            CreateMap<Contact, ResultContactDto>().ReverseMap();
+            CreateMap<Contact, CreateContactDto>().ReverseMap();
+            CreateMap<Contact, UpdateContactDto>().ReverseMap();
+            CreateMap<Contact, GetByIdContactDto>().ReverseMap();
 
 
         }

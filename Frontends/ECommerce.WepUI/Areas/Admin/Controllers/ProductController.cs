@@ -26,7 +26,12 @@ namespace ECommerce.WebUI.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            ViewBagCategories();
+
+            ViewBag.title = "Ürün İşlemleri";
+            ViewBag.v1 = "Ana sayfa";
+            ViewBag.v2 = "Ürünler";
+            ViewBag.v3 = "Ürün Listesi";
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7047/api/Product");
             if (responseMessage.IsSuccessStatusCode)
@@ -111,7 +116,11 @@ namespace ECommerce.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<ActionResult> UpdateProduct(string id)
         {
-            ViewBagCategories();
+
+            ViewBag.title = "Ürün İşlemleri";
+            ViewBag.v1 = "Ana sayfa";
+            ViewBag.v2 = "Ürünler";
+            ViewBag.v3 = "Ürün Listesi";
 
             var client1 = _httpClientFactory.CreateClient();
             var responseMessage1 = await client1.GetAsync("https://localhost:7047/api/Categories");
@@ -172,15 +181,8 @@ namespace ECommerce.WebUI.Areas.Admin.Controllers
 
         public void ViewBagCategories()
         {
-            ViewBag.title = "Ürün İşlemleri";
-            ViewBag.v1 = "Ana sayfa";
-            ViewBag.v2 = "Ürünler";
-            ViewBag.v3 = "Ürün Listesi";
         }
 
-        public async Task GetCategoriesAsync()
-        {
-            
-        }
+    
     }
 }

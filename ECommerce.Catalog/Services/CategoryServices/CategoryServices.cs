@@ -36,16 +36,16 @@ namespace ECommerce.Catalog.Services.CategoryServices
            return mapper.Map<GetByIdCategoryDto>(value);
         }
 
-        public async  Task<List<ResultCategoryDto>>  GetAllCategoryAsync()
+        public async  Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
             var values = await mongoCollection.Find(x => true).ToListAsync();
             return mapper.Map<List<ResultCategoryDto>>(values);
         }
 
-        public async Task UpdateCategory(UpdateCategoryDto categoryDto)
+        public async Task UpdateCategory(UpdateCategoryDto CategoryDto)
         {
-            var value = mapper.Map<Category>(categoryDto);
-            await mongoCollection.FindOneAndReplaceAsync(x => x.CategoryID == categoryDto.CategoryID, value);
+            var value = mapper.Map<Category>(CategoryDto);
+            await mongoCollection.FindOneAndReplaceAsync(x => x.CategoryID == CategoryDto.CategoryID, value);
         }
 
     

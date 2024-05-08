@@ -1,4 +1,5 @@
 using ECommerce.Catalog.Services.CategoryServices;
+using ECommerce.Catalog.Services.ContactServices;
 using ECommerce.Catalog.Services.FeatureSliderServices;
 using ECommerce.Catalog.Services.PrductDetailServices;
 using ECommerce.Catalog.Services.ProductImageServices;
@@ -25,6 +26,7 @@ builder.Services.AddScoped<IProductDetailServices, ProductDetailServices>();
 builder.Services.AddScoped<IProductImageServies, ProductImageServices>();
 builder.Services.AddScoped<IFeatureSliderServices, FeatureSliderServices>();
 builder.Services.AddScoped<ISpecialOfferServices, SpecialOfferServices>();
+builder.Services.AddScoped<IContactServices, ContactServices>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

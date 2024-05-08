@@ -1,4 +1,5 @@
-﻿
+﻿@using ECommerce.Dto.CatalogDtos.ContactDtos
+@model CreateContactDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -18,10 +19,48 @@
 <!-- Breadcrumb End -->
 <!-- Contact Start -->
 <div class="container-fluid">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Contact Us</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">İletişim</span></h2>
     <div class="row px-xl-5">
 
-        @await Component.InvokeAsync("_ContactViewSComponentPartial")
+        <div class="col-lg-7 mb-5">
+            <div class="contact-form bg-light p-30">
+                <div id="success"></div>
+                <form method="post">
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="name" placeholder="İsminiz"
+                               required="required" data-validation-required-message="Lütfen isminizi giriniz"
+                               asp-for="AdSoyad" />
+                        <span class="help-block text-danger" asp-validation-for="AdSoyad"></span>
+                    </div>
+                    <div class="control-group">
+                        <input type="email" class="form-control" id="email" placeholder="Emailiniz"
+                               required="required" data-validation-required-message="Lütfen emailinizi giriniz"
+                               asp-for="Email" />
+                        <span class="help-block text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="subject" placeholder="Başlık"
+                               required="required" data-validation-required-message="Lütfen mesajınızı başlığını giriniz"
+                               asp-for="Title" />
+                        <span class="help-block text-danger" asp-validation-for="Title"></span>
+                    </div>
+                    <div class="control-group">
+                        <textarea class="form-control" rows="8" id="message" placeholder="Mesajınız"
+                                  required="required"
+                                  data-validation-required-message="Lütfen mesajınızı giriniz"
+                                  asp-for="Message"></textarea>
+                        <span class="help-block text-danger" asp-validation-for="Message"></span>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
+                            mesaj
+                            Gönder
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="col-lg-5 mb-5">
             <div class="bg-light p-30 mb-30">
                 <iframe style="width: 100%; height: 250px;"
