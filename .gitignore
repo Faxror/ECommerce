@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Frontends/ECommerce.WepUI/Views/Shared/Components/_ProductDetailPriceDefaultComponentPartial/Default.cshtml
