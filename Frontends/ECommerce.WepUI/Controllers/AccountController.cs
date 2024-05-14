@@ -1,26 +1,29 @@
-﻿using ECommerce.Dto.CatalogDtos.CommentDtos;
-using ECommerce.Dto.IdentityServerDto;
+﻿using ECommerce.Dto.IdentityServerDto;
 using ECommerce.WebUI.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 using System.Security.Claims;
-using System.Text;
 using System.Text.Json;
+using System.Text;
+using ECommerce.WebUI.Services;
 
 namespace ECommerce.WebUI.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IIdentityServerServices _identityServerServices;
 
-        public AccountController(IHttpClientFactory httpClientFactory)
+        public AccountController(IHttpClientFactory httpClientFactory, IIdentityServerServices identityServerServices)
         {
             _httpClientFactory = httpClientFactory;
+            _identityServerServices = identityServerServices;
         }
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -48,7 +51,7 @@ namespace ECommerce.WebUI.Controllers
                     return View(createIdentityDto); // Hata ile birlikte view döndürülüyor
                 }
             }
-           return View();
+            return View();
         }
 
 
@@ -61,6 +64,7 @@ namespace ECommerce.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(CreateLoginDto createLoginDto)
         {
+
             var client = _httpClientFactory.CreateClient();
             var contant = new StringContent(System.Text.Json.JsonSerializer.Serialize(createLoginDto), Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://localhost:5001/api/Account/Login", contant);
@@ -70,13 +74,13 @@ namespace ECommerce.WebUI.Controllers
                 var tokenModel = System.Text.Json.JsonSerializer.Deserialize<JwtResponseModel>(jsonData, new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                });if (tokenModel != null)
+                }); if (tokenModel != null)
                 {
-                   JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+                    JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
                     var token = jwtSecurityTokenHandler.ReadJwtToken(tokenModel.Token);
                     var claim = token.Claims.ToList();
 
-                    if(tokenModel.Token != null)
+                    if (tokenModel.Token != null)
                     {
                         claim.Add(new Claim("eticarettoken", tokenModel.Token));
                         var claimsIdentity = new ClaimsIdentity(claim, JwtBearerDefaults.AuthenticationScheme);
@@ -92,6 +96,22 @@ namespace ECommerce.WebUI.Controllers
                 }
             }
             return View();
+        }
+
+
+        //[HttpGet]
+        //public IActionResult SignUp()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        public async Task<IActionResult> SignUp(SingInDto singInDto)
+        {
+            singInDto.Username = "Merce";
+            singInDto.Password = "111111aA*";
+            await _identityServerServices.SignIn(singInDto);
+            return RedirectToAction("Index", "test");
         }
     }
 }

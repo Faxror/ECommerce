@@ -1,8 +1,11 @@
 using ECommerce.WebUI.Services;
+using ECommerce.WebUI.Settings;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddHttpClient();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
 {
@@ -15,10 +18,29 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.Cookie.Name = "ETicaret";
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+{
+    opt.LoginPath = "/Account/Login";
+    opt.ExpireTimeSpan = TimeSpan.FromDays(5);
+    opt.Cookie.Name = "ECommerceCookie";
+    opt.SlidingExpiration = true;
+});
+
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IIdentityServerServices, IdentityServerServices>();
+
+
+
+
+builder.Services.AddHttpClient();
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+
 // Add services to the container.
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

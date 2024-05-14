@@ -18,7 +18,7 @@ namespace ECommerce.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [AllowAnonymous]
+
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
