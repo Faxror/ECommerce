@@ -36,9 +36,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{D88E1691-EBD7-45DD-A36A-B0C4875867CA}"
 	ProjectSection(SolutionItems) = preProject
 		IdentityServerVersions.txt = IdentityServerVersions.txt
+		Ocelot Link.txt = Ocelot Link.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
 		PortNumber.txt = PortNumber.txt
-		Ocelot Link.txt = Ocelot Link.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{40C96EAB-14BC-4D8C-AB33-CCAE47117B33}"
@@ -69,15 +69,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Comment", "Servic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{177BBA69-05C7-44D7-83B4-369711285286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.OcelotGateway", "ApiGateway\MultiShop.OcelotGateway\MultiShop.OcelotGateway.csproj", "{1CEDE089-AF08-41D1-8CF8-86D17E43AF14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.OcelotGateway", "ApiGateway\MultiShop.OcelotGateway\ECommerce.OcelotGateway.csproj", "{1CEDE089-AF08-41D1-8CF8-86D17E43AF14}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{7DC4790B-FBD1-418D-8E20-F08E02A417FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Payment", "ECommerce.Payment\ECommerce.Payment.csproj", "{41ED4026-2F1B-4D33-A700-A1A475A02E22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Payment", "ECommerce.Payment\ECommerce.Payment.csproj", "{41ED4026-2F1B-4D33-A700-A1A475A02E22}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{287779D2-2C99-4815-8E0F-FA11D6902711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Image", "Image\ECommerce.Image\ECommerce.Image.csproj", "{43352976-7185-4AF1-A508-8C5BD63A2DE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.Image", "Image\ECommerce.Image\ECommerce.Image.csproj", "{43352976-7185-4AF1-A508-8C5BD63A2DE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
