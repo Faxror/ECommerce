@@ -49,7 +49,7 @@ namespace ECommerce.WebUI.Controllers
                         var context = await response.Content.ReadAsStringAsync();
                         // TokenResponse oluşturma
                         var tokenResponse = JObject.Parse(context);
-                         //ToeknResponse'den gelen "access_Token"'i okuma
+                         //TokenResponse'den gelen "access_Token"'i okuma
                         token = tokenResponse["access_token"].ToString();
                     }
                 }

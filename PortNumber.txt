@@ -1,6 +1,10 @@
+OcelotGateway --> 5000
 Ýdentity --> 5001
 Catalog  --> 7047
 Discount --> 7048
 Order    --> 7049
 Cargo    --> 7050
-Basket    --> 7051
+Basket   --> 7051
+Payment  --> 7052
+Images   --> 7053
+Comment  --> 7018
